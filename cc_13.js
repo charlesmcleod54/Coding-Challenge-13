@@ -24,3 +24,15 @@ function createEmployeeCard(name, position) {
     document.getElementById('employeeContainer').appendChild(card);
 }
 
+// Task 3 - Converting NodeLists to Arrays for Bulk Updates
+function highlightEmployeeCards() {
+    const cards = document.querySelectorAll('.employee-card');
+
+    const cardArray = Array.from(cards);
+
+    cardArray.forEach(card => {
+        card.computedStyleMap.backgroundColor = 'lightblue';
+        card.computedStyleMap.border = '2px solid blue';
+    });
+}
+
