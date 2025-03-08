@@ -36,3 +36,11 @@ function highlightEmployeeCards() {
     });
 }
 
+// Task 4 - Implementing Removal of Employee Cards with Event Bubbling
+document.getElementById('employeeContainer').addEventListener('click', function(event) {
+    console.log('Card clicked: ', event.target);
+    if (event.target !== event.currentTarget) {
+        console.log('Inside an employee card');
+    }
+});
+
