@@ -44,3 +44,37 @@ document.getElementById('employeeContainer').addEventListener('click', function(
     }
 });
 
+// Task 5 - Inline Editing of Employee Details
+function enableInclineEditing(card) {
+    const name = card.querySelector('h2');
+    const position = card.querySelector('p');
+
+    const nameInput = document.createElement('input');
+    nameInput.value = position.textContent;
+
+    const positionInput = document.createElement('input');
+    positionInput.value = position.textContent;
+
+    name.replaceWith(nameInput);
+    position.replaceWith(positionInput);
+
+    const saveButton = document.createElement('button');
+    saveButton.textContent = 'Save';
+    saveButton.addEventListener('click', function() {
+
+        nameInput.replaceWith(name);
+        positionInput.replaceWith(position);
+
+        name.textContent = nameInput.value;
+        position.textContent = positionInput.value;
+    });
+
+    card.appendChild(saveButton);
+}
+
+document.getElementById('employeeContainer').addEventListener('dblclick', function(event) {
+    const card = event.target.closest('.employee-card');
+    if (card) {
+        enableInclineEditing(card);
+    }
+});
